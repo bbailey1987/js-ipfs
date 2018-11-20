@@ -31,6 +31,11 @@ log('IPFS: Initialising')
 
 ipfs.on('ready', () => {
   // Allow adding files to IPFS via drag and drop
+  console.log('ipfs.get', ipfs.get);
+  ipfs.get('QmTengyUmb1FVbDoPJDTAW3HFrDoru7FYcouSeM3QMkaLh', {})
+    .then(res => {
+      console.log('FILES', res);
+    });
   dragDrop(async (files) => {
     /* eslint-disable-next-line no-alert */
     const destinationDirectory = prompt(`Dropped ${files.length} file${files.length > 1 ? 's' : ''}, please enter a directory to store them in`, '/')
